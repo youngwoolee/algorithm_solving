@@ -5,25 +5,26 @@ import java.util.Scanner;
 public class lesson01 {
 
 	public static int solution(int N) {
-		// ∞°¿Â ±‰ πŸ¿Ã≥ ∏Æ ∞∏¿ª ∏Æ≈œ
+		// Í∞ÄÏû• Í∏¥ Î∞îÏù¥ÎÑàÎ¶¨ Í∞≠ÏùÑ Î¶¨ÌÑ¥
 
-		int flag=0, tmp=0, max=0, lng =0;
+		int tmp =0, max =0, lng;
+        char flag;
         String binary = Integer.toBinaryString(N);
+
         for(int i=0; i<binary.length(); i++) {
-            if(binary.charAt(i) == '1') {
-                if(flag ==0) {
-                    flag++;
-                    tmp =i;
-                }
-                else if(flag >= 1) {
-                    flag ++;
-                    lng = i-tmp-1;
-                    if(lng> max) max=lng;
-                    tmp =i;
-                }
+
+            flag = binary.charAt(i);
+            if(flag == '1') {
+                lng = i-tmp-1;
+                if(lng>max) max=lng;
+                tmp = i;
+
             }
-            
+
+
         }
+
+
         return max;
 	}
 
