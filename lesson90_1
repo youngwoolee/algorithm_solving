@@ -1,0 +1,30 @@
+import java.util.Arrays;
+
+public class lesson90_1 {
+
+    public static void main(String[] args) {
+
+
+        String S = "test 5 a0A pass007 ?xy1";
+        int max=-1;
+
+        String[] words = S.split(" ");
+
+
+        for(String word: words) {
+
+            char[] charWord = word.toCharArray();
+
+            Arrays.sort(charWord);
+            word = String.valueOf(charWord);
+
+            if(word.matches("[0-9]([0-9][0-9])*([a-zA-Z][a-zA-Z])*"))
+                max = (word.length() >max) ? word.length(): max;
+
+        }
+
+        System.out.println(max);
+
+
+    }
+}
